@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="position-fixed bottom-0 right-0 p-5" style="z-index: 99999; right: 0; bottom: 0;">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+        <div class="toast-header">
+            <img src="~/img/success.gif" class="rounded mr-2 img-fluid" alt="...">
+
+        </div>
+        <div class="toast-body">
+            <strong>Product Deleted Successfully!</strong>
+        </div>
+    </div>
+</div>
+
+<div class="input-group mb-3 w-75 mx-auto">
+    <input id="searchInput" type="text" class="form-control" placeholder="Product ID" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+        <input type="button" class="btn btn-primary" id="basic-addon2" value="Search" onclick="SearchProduct()" />
+    </div>
+</div>
+
+<div class="container d-none" id="main">
+
+    <div class="text-center mt-5">
+        <img src="~/img/dummyProductImg.jpg" class="col-2 rounded" id="prodImg" />
+    </div>
+    <form class="" asp-action="Delete" asp-controller="Products" method="post" onsubmit="ShowToast()">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Product ID</label>
+            <input name="Id" type="number" class="form-control" id="prodID" aria-describedby="emailHelp" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input name="Name" type="text" class="form-control" id="prodName" aria-describedby="emailHelp" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Size</label>
+            <input name="Size" type="text" class="form-control" id="prodSize" aria-describedby="emailHelp" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Colors</label>
+            <input name="Colors" type="text" class="form-control" id="prodColors" aria-describedby="emailHelp" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Price</label>
+            <input name="Price" type="number" class="form-control" id="prodPrice" aria-describedby="emailHelp" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Stock</label>
+            <input name="Stock" type="number" class="form-control" id="prodStock" aria-describedby="emailHelp" readonly />
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Describtion</label>
+            <textarea name="Description" class="form-control" id="prodDes" aria-describedby="emailHelp" readonly></textarea>
+        </div>
+
+  
+        <input type="text" hidden id="prodImgPath" name="ImagePath" value="" />
+        <input type="text" hidden name="IsExist" value="true" />
+
+        <button type="submit" class="btn btn-danger mb-5" id="liveToastBtn">Delete Product</button>
+    </form>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/DeleteProduct.js"></script>
+}

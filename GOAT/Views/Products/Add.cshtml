@@ -1,0 +1,87 @@
+﻿@model GOAT.Data.ImageFileVM
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<DTOs.Objects.Category> Categories = (ViewData["Categories"] as List<DTOs.Objects.Category>)!;
+}
+
+<div class="position-fixed bottom-0 right-0 p-5" style="z-index: 99999; right: 0; bottom: 0;">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+        <div class="toast-header">
+            <img src="~/img/success.gif" class="rounded mr-2 img-fluid" alt="...">
+            
+        </div>
+        <div class="toast-body">
+            <strong>Product Added Successfully!</strong>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <form asp-action="Add" asp-controller="Products" method="post" enctype="multipart/form-data" onsubmit="ShowToast()">
+
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" class="form-control" name="Name">
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select name="CategoryID" title="Categories" class="custom-select">
+                <option  disabled selected>Select Category</option>
+                @foreach (DTOs.Objects.Category category in Categories ?? new List<DTOs.Objects.Category>())
+                {
+                    <option value="@category.Id">@category.Name</option>
+                
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Size</label>
+            <input type="text" class="form-control" name="Size">
+        </div>
+
+        <div class="form-group">
+            <label>Colors</label>
+            <input type="text" class="form-control" name="Colors">
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" class="form-control" name="Price">
+        </div>
+
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="number" class="form-control" name="Stock">
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" name="Description"></textarea>
+        </div>
+
+        <label for="inputGroupFile01">Image</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*" asp-for="Image" onchange="displayFileName()">
+                <label class="custom-file-label" id="fileLabel" for="inputGroupFile01">Choose file</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" id="liveToastBtn">Add Product</button>
+    </form>
+
+</div>
+
+
+@section Scripts{
+<script src="~/js/AddProduct.js"></script>
+}

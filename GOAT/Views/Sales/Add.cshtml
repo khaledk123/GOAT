@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="position-fixed bottom-0 right-0 p-5" style="z-index: 99999; right: 0; bottom: 0;">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+        <div class="toast-header">
+            <img src="~/img/success.gif" class="rounded mr-2 img-fluid" alt="...">
+
+        </div>
+        <div class="toast-body">
+            <strong>Sale Added Successfully!</strong>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <form asp-action="Add" asp-controller="Products" method="post" enctype="multipart/form-data" onsubmit="ShowToast()">
+       
+        <div class="form-group">
+            <label>Product ID</label>
+            <input type="number" class="form-control" name="Name">
+        </div>
+
+        <div class="form-group">
+            <label>Customer Name</label>
+            <input type="text" class="form-control" name="Stock">
+        </div>
+
+        <div class="form-group">
+            <label>Customer Phone</label>
+            <input type="text" class="form-control" name="Stock">
+        </div>
+
+        <div class="form-group">
+            <label>Discount</label>
+            <input type="number" class="form-control" name="Stock">
+        </div>
+
+        <div class="form-group">
+            <label>Discount Reason</label>
+            <textarea class="form-control" name="Description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Remaining Payment</label>
+            <input type="number" class="form-control" name="Stock">
+        </div>
+
+        <div class="form-group">
+            <label>Notes</label>
+            <textarea class="form-control" name="Description"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label>Seller</label>
+            <select class="custom-select">
+                <option>Seller</option>
+                <option>Seller</option>
+            </select>
+            
+        </div>
+
+        <button type="submit" class="btn btn-success" id="liveToastBtn">Add Product</button>
+    </form>
+
+</div>
+
+
+@section Scripts {
+    <script src="~/js/AddProduct.js"></script>
+}

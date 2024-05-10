@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="px-5">
+    <table class="table table-striped custom-table-data display" id="table">
+        <thead>
+            <tr>
+                <th scope="col" class="align-middle text-center">Sale ID</th>
+                <th scope="col" class="align-middle text-center">Product ID</th>
+                <th scope="col" class="align-middle text-center">Customer Name</th>
+                <th scope="col" class="align-middle text-center">Customer Phone</th>
+                <th scope="col" class="align-middle text-center">Discount</th>
+                <th scope="col" class="align-middle text-center">Discount Reason</th>
+                <th scope="col" class="align-middle text-center">Remaining Payment</th>
+                <th scope="col" class="align-middle text-center">Notes</th>
+                <th scope="col" class="align-middle text-center">Seller</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                    <tr>
+                        <th scope="row" class="align-middle text-center">product.Id</th>
+                        <td class="align-middle text-center">product.Name</td>
+                        <td class="align-middle text-center">product.Price</td>
+                        <td class="align-middle text-center">product.Stock</td>
+                        <td class="align-middle text-center">product.Description</td>
+                        <td class="align-middle text-center">product.Description</td>
+                        <td class="align-middle text-center">product.Description</td>
+                        <td class="align-middle text-center">product.Description</td>
+                        <td class="align-middle text-center">product.Description</td>
+                    </tr>
+                
+
+            
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+@section Scripts {
+    <script src="~/js/DisplaySales.js"></script>
+}
